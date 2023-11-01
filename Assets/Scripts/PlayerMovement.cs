@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     public void Movement(InputAction.CallbackContext context)
     {
         _moveDirection = context.ReadValue<Vector2>();
-        Debug.Log(_moveDirection);
     }
 
     private void Update()
