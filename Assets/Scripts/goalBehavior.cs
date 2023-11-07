@@ -8,7 +8,7 @@ public class goalBehavior : MonoBehaviour
 
     public bool playerOneTwo; // 0 for player one, 1 for player two
 
-    public GameObject ballObject;
+    public GameObject mainBall;
 
     public GameObject scorePanel;
 
@@ -26,11 +26,11 @@ public class goalBehavior : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == ballObject.name)
+        if(collision.gameObject.name == mainBall.name)
         {
             //UnityEngine.Debug.Log("Ball Hit Goal");
             scorePanel.GetComponent<scoreManager>().updateScore(playerOneTwo);
-            ballObject.GetComponent<BallPhysics>().ResetBall();
+            mainBall.GetComponent<BallPhysics>().ResetBall();
         }
     }
 }
