@@ -2,8 +2,9 @@ using System.Collections.Specialized;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Collections;
+using Unity.Netcode;
 
-public class BallPhysics : MonoBehaviour
+public class BallPhysics : NetworkBehaviour
 {
     private Rigidbody _rigidbody;
 
