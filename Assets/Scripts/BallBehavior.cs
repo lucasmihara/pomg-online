@@ -22,7 +22,7 @@ public class BallPhysics : NetworkBehaviour
         _speed = 5f;
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.velocity = new Vector3(Random.Range(-1, 1) >= 0 ? 1 : -1, Random.Range(0.2f, 0.8f), 0) * _speed;
-        Debug.Log(_rigidbody.velocity);
+        // Debug.Log(_rigidbody.velocity);
     }
 
     private void Update()
