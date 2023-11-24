@@ -15,8 +15,6 @@ public class NetworkManagerUI : MonoBehaviour
 
     private void Awake()
     {
-        //JsonUtility.FromJson<>();
-        Debug.Log(File.ReadAllText($"{Application.dataPath}/config.json"));
         serverBtn.onClick.AddListener(() => NetworkManager.Singleton.StartServer());
         hostBtn.onClick.AddListener(() => NetworkManager.Singleton.StartHost());
         clientBtn.onClick.AddListener(() => NetworkManager.Singleton.StartClient());

@@ -12,9 +12,7 @@ public class NetworkManagerSetup : MonoBehaviour
     {
         var configText = File.ReadAllText($"{Application.dataPath}/config.json");
         var config = JsonUtility.FromJson<NetworkConfig>(configText);
-        Debug.Log(config.adress);
-        Debug.Log(config.port);
-        NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address = config.port;
+        NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Address = config.adress;
         NetworkManager.Singleton.GetComponent<UnityTransport>().ConnectionData.Port = ushort.Parse(config.port);
     }
 }
