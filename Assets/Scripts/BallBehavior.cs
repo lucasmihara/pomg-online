@@ -3,6 +3,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Collections;
 using Unity.Netcode;
+using System;
 
 public class BallPhysics : NetworkBehaviour
 {
@@ -15,6 +16,13 @@ public class BallPhysics : NetworkBehaviour
     public bool isTemporary; // Temporary balls are the ones created by items / powerups
 
     private Vector3 _lastVelocity;
+
+    public AudioClip _audioClip;
+
+    public AudioSource _audioSource;
+
+    private int transpose = -4;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +31,14 @@ public class BallPhysics : NetworkBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.velocity = new Vector3(Random.Range(-1, 1) >= 0 ? 1 : -1, Random.Range(0.2f, 0.8f), 0) * _speed;
         // Debug.Log(_rigidbody.velocity);
+
+        if (_audioSource == null)
+        {
+            _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource.loop = false;
+            _audioSource.clip = _audioClip;
+            _audioSource.volume = 1;
+        }
     }
 
     private void Update()
@@ -47,6 +63,8 @@ public class BallPhysics : NetworkBehaviour
         else
             lastHit = 1; // Right Goal
 
+        _audioSource.pitch = (float)Math.Pow(2, (transpose + (int)Random.Range(0, 14)) / 12.0);
+        _audioSource.Play();
     }
 
     public void ResetBall()
