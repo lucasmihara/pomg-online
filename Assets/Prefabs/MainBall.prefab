@@ -4846,7 +4846,6 @@ GameObject:
   - component: {fileID: 7332314363513738818}
   - component: {fileID: 6426203668672657310}
   - component: {fileID: -6835866274589526876}
-  - component: {fileID: -3470912889429221334}
   m_Layer: 0
   m_Name: MainBall
   m_TagString: Untagged
@@ -5136,17 +5135,5 @@ MonoBehaviour:
   UseQuaternionCompression: 0
   UseHalfFloatPrecision: 0
   InLocalSpace: 0
-  Interpolate: 1
+  Interpolate: 0
   SlerpPosition: 0
---- !u!114 &-3470912889429221334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1836651179176122372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
