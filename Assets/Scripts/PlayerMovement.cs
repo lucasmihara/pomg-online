@@ -22,7 +22,8 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (!IsOwner) return;
         
-        MovementServerRpc(context.ReadValue<Vector2>().y);
+        // MovementServerRpc(context.ReadValue<Vector2>().y);
+        _moveDirection = new Vector2(0, context.ReadValue<Vector2>().y);
     }
 
     public override void OnNetworkSpawn()
@@ -43,9 +44,9 @@ public class PlayerMovement : NetworkBehaviour
         _controller = GetComponent<CharacterController>();
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    private void MovementServerRpc(float yDirection)
-    {
-        _moveDirection = new Vector2(0, yDirection);
-    }
+    // [ServerRpc(RequireOwnership = false)]
+    // private void MovementServerRpc(float yDirection)
+    // {
+    //     _moveDirection = new Vector2(0, yDirection);
+    // }
 }
